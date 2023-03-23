@@ -216,3 +216,57 @@
     margin: 0 auto;
     padding: 0 1rem;
 }
+
+.card span {
+    display: inline-block;
+    transition: transform 200ms;
+  }
+  
+  .card h2 {
+    font-weight: 600;
+    margin-bottom: 0.7rem;
+  }
+  
+  .card p {
+    margin: 0;
+    opacity: 0.6;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    max-width: 30ch;
+  }
+
+  /* Enable hover only on non-touch devices */
+@media (hover: hover) and (pointer: fine) {
+    .card:hover {
+      background: rgba(var(--card-rgb), 0.1);
+      border: 1px solid rgba(var(--card-border-rgb), 0.15);
+    }
+  
+    .card:hover span {
+      transform: translateX(4px);
+    }
+  }
+  .card {
+    padding: 1rem 2.5rem;
+  }
+
+  .card h2 {
+    margin-bottom: 0.5rem;
+  }
+  .header {
+    width: 100%;
+    background-color: transparent;
+  }
+  
+  .headerText {
+    font-size: 2.5rem;
+    margin: 0;
+    color: #353535;
+  }
+  .subheadText {
+    font-size: 1.5rem;
+    margin: 0;
+    color: #5c5c5c;
+  }
+
+  
