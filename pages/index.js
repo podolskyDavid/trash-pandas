@@ -2,10 +2,26 @@ import Head from 'next/head'
 import Image from 'next/image'
 import {Inter} from 'next/font/google'
 import styles from '@/styles/Home.module.css'
+import { useState } from 'react';
 
 const inter = Inter({subsets: ['latin']})
 
 export default function Home() {
+    const [image, setImage] = useState(null);
+
+    const handleImageChange = (e) => {
+        e.preventDefault();
+        let file = e.target.files[0];
+        if (file) {
+            let reader = new FileReader();
+            reader.onloadend = () => {
+                setImage(reader.result);
+            };
+            reader.readAsDataURL(file);
+        }
+    };
+
+
     return (
         <>
             <Head>
@@ -16,20 +32,24 @@ export default function Home() {
             </Head>
             <main className={styles.main}>
                 <div className={styles.description}>
-                    <a
-                        href="https://www.stadt.sg.ch/home/welcome.html"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        <Image
-                            src="/logo-stg.png"
-                            alt="St. Gallen Logo"
-                            className={styles.vercelLogo}
-                            width={100}
-                            height={24}
-                            priority
-                        />
-                    </a>
+                    <div>
+                        <p>
+                            <a
+                                href="https://www.stadt.sg.ch/home/welcome.html"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <Image
+                                    src="/logo-stg.svg"
+                                    alt="St. Gallen Logo"
+                                    className={styles.vercelLogo}
+                                    width={100}
+                                    height={24}
+                                    priority
+                                />
+                            </a>
+                        </p>
+                    </div>
                     <div>
                         <a
                             href="https://www.tum-ai.com/"
@@ -50,23 +70,18 @@ export default function Home() {
                 </div>
 
                 <div className={styles.center}>
-                    <Image
-                        className={styles.logo}
-                        src="/next.svg"
-                        alt="Next.js Logo"
-                        width={180}
-                        height={37}
-                        priority
+                    <h2>Upload an image</h2>
+                    <input
+                        type="file"
+                        accept="image/*"
+                        onChange={handleImageChange}
+                        className={styles.uploadInput}
                     />
-                    <div className={styles.thirteen}>
-                        <Image
-                            src="/thirteen.svg"
-                            alt="13"
-                            width={40}
-                            height={31}
-                            priority
-                        />
-                    </div>
+                    {image && (
+                        <div className={styles.uploadedImage}>
+                            <Image src={image} alt="Uploaded Image" layout="fill" objectFit="cover" />
+                        </div>
+                    )}
                 </div>
 
                 <div className={styles.grid}>
