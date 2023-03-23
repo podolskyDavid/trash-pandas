@@ -2,12 +2,15 @@ import Head from 'next/head'
 import Image from 'next/image'
 import {Inter} from 'next/font/google'
 import styles from '@/styles/Home.module.css'
-import { useState } from 'react';
+import React, {useState} from 'react';
+
 
 const inter = Inter({subsets: ['latin']})
 
 export default function Home() {
     const [image, setImage] = useState(null);
+    const [expandedSection, setExpandedSection] = useState(null);
+    const [isMapModalOpen, setIsMapModalOpen] = useState(false);
 
     const handleImageChange = (e) => {
         e.preventDefault();
@@ -21,6 +24,21 @@ export default function Home() {
         }
     };
 
+    const handleSectionClick = (sectionIndex) => {
+        if (expandedSection === sectionIndex) {
+            setExpandedSection(null);
+        } else {
+            setExpandedSection(sectionIndex);
+        }
+    };
+
+    const openBiggerMap = () => {
+        setIsMapModalOpen(true);
+    };
+
+    const closeBiggerMap = () => {
+        setIsMapModalOpen(false);
+    };
 
     return (
         <>
@@ -42,7 +60,6 @@ export default function Home() {
                                 <Image
                                     src="/logo-stg.svg"
                                     alt="St. Gallen Logo"
-                                    className={styles.vercelLogo}
                                     width={100}
                                     height={24}
                                     priority
@@ -60,7 +77,6 @@ export default function Home() {
                             <Image
                                 src="/tumai.svg"
                                 alt="TUM.ai Logo"
-                                className={styles.vercelLogo}
                                 width={100}
                                 height={24}
                                 priority
@@ -68,80 +84,50 @@ export default function Home() {
                         </a>
                     </div>
                 </div>
-
-                <div className={styles.center}>
-                    <h2>Upload an image</h2>
-                    <input
-                        type="file"
-                        accept="image/*"
-                        onChange={handleImageChange}
-                        className={styles.uploadInput}
-                    />
-                    {image && (
-                        <div className={styles.uploadedImage}>
-                            <Image src={image} alt="Uploaded Image" layout="fill" objectFit="cover" />
+                <div className={styles.columns}>
+                    <div className={`${styles.container} ${styles.formContainer}`}>
+                        <input type="email" placeholder="Email"/>
+                        <input type="file" accept="image/*" onChange={handleImageChange}/>
+                        <div className={styles.mapContainer} onClick={openBiggerMap}>
+                            <Image
+                                src="/map_preview.jpg"
+                                alt="Map preview"
+                                width={250}
+                                height={100}
+                            />
                         </div>
-                    )}
+                        <button>Pay</button>
+
+                    </div>
+                    <div className={`${styles.container} ${styles.sectionContainer}`}>
+                        {Array(4)
+                            .fill(0)
+                            .map((_, index) => (
+                                <div
+                                    key={index}
+                                    className={`${styles.section} ${
+                                        expandedSection === index ? styles.expanded : ''
+                                    }`}
+                                    onClick={() => handleSectionClick(index)}
+                                >
+                                    Section {index + 1}
+                                </div>
+                            ))}
+                    </div>
                 </div>
 
-                <div className={styles.grid}>
-                    <a
-                        href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-                        className={styles.card}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        <h2 className={inter.className}>
-                            Docs <span>-&gt;</span>
-                        </h2>
-                        <p className={inter.className}>
-                            Find in-depth information about Next.js features and&nbsp;API.
-                        </p>
-                    </a>
+                {isMapModalOpen && (
+                    <div className={styles.mapModal}>
+                        <div className={styles.mapBackdrop} onClick={closeBiggerMap}></div>
+                        <div className={styles.mapContent}>
+                            {/* Render your bigger map component here */}
+                            <button className={styles.closeMapButton} onClick={closeBiggerMap}>
+                                Close
+                            </button>
+                        </div>
+                    </div>
+                )}
 
-                    <a
-                        href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-                        className={styles.card}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        <h2 className={inter.className}>
-                            Learn <span>-&gt;</span>
-                        </h2>
-                        <p className={inter.className}>
-                            Learn about Next.js in an interactive course with&nbsp;quizzes!
-                        </p>
-                    </a>
-
-                    <a
-                        href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-                        className={styles.card}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        <h2 className={inter.className}>
-                            Templates <span>-&gt;</span>
-                        </h2>
-                        <p className={inter.className}>
-                            Discover and deploy boilerplate example Next.js&nbsp;projects.
-                        </p>
-                    </a>
-
-                    <a
-                        href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-                        className={styles.card}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        <h2 className={inter.className}>
-                            Deploy <span>-&gt;</span>
-                        </h2>
-                        <p className={inter.className}>
-                            Instantly deploy your Next.js site to a shareable URL
-                            with&nbsp;Vercel.
-                        </p>
-                    </a>
-                </div>
             </main>
         </>
     )
