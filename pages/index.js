@@ -36,14 +36,12 @@ export default function Home() {
           <div>
             <p>
               <a
-                href="https://www.stadt.sg.ch/home/welcome.html"
-                target="_blank"
+                href="./"
                 rel="noopener noreferrer"
               >
                 <Image
                   src="/logo-stg.svg"
                   alt="St. Gallen Logo"
-                  className={styles.vercelLogo}
                   width={100}
                   height={24}
                   priority
@@ -52,24 +50,7 @@ export default function Home() {
             </p>
             
           </div>
-          <div>
-          <p>
-              <a
-                href="./"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Image
-                  src="/../public/RacoonLogo.png"
-                  alt="Smart Gallen Logo"
-                  className={styles.vercelLogo}
-                  width={100}
-                  height={24}
-                  priority
-                />
-              </a>
-            </p>
-          </div>
+
           <div>
             <a
               href="https://www.tum-ai.com/"
@@ -80,7 +61,6 @@ export default function Home() {
               <Image
                 src="/tumai.svg"
                 alt="TUM.ai Logo"
-                className={styles.vercelLogo}
                 width={100}
                 height={24}
                 priority
@@ -88,30 +68,23 @@ export default function Home() {
             </a>
           </div>
         </div>
-        <h1 className={styles.headerText}>Trash Bulk</h1>
-        <h2 className={styles.subheadText}>Your way to easily leave the bulk trash</h2>
-        {/* <div
-          className={styles.header}
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            height: '100px',
-          }}
-        >
-          <Image
-            src="/../public/logo_racoon.png"
-            alt="Header Logo"
-            width={200}
-            height={50}
-            priority
-          />
-        </div> */}
-        <div className={styles.grid} style={{ display: 'flex', justifyContent: 'center' }}>
+        <div className={styles.textIndex}>
+          <div className={styles.logoAndName}>
+            <Image
+                src="/racoon.png"
+                alt="St. Gallen Bulk Trash Logo"
+                width={150}
+                height={150}
+                priority
+            />
+            <h1 className={styles.headerText}>Bulk Waste <br/> Collection System</h1>
+          </div>
+          <h2 className={styles.subheadText}>Easily dispose of bulk trash with us 🗑️</h2>
+        </div>
+        <div style={{ display: 'flex', justifyContent: 'center', padding: "0px 0px 250px 0px" }}>
           <a
             href="./collector"
             className={styles.card}
-            target="_blank"
             rel="noopener noreferrer"
           >
             <h2 className={inter.className}>
@@ -124,7 +97,6 @@ export default function Home() {
           <a
             href="./agent"
             className={styles.card}
-            target="_blank"
             rel="noopener noreferrer"
           >
             <h2 className={inter.className}>
@@ -138,7 +110,6 @@ export default function Home() {
           <a
             href="./citizen"
             className={styles.card}
-            target="_blank"
             rel="noopener noreferrer"
           >
             <h2 className={inter.className}>
