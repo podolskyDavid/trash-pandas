@@ -162,6 +162,7 @@
     display: block;
     width: 100%;
     font-size: 1rem;
+    font-family: 'Inter', sans-serif;
     padding: 0.5rem 1rem;
     margin-bottom: 1rem;
     border: 1px solid rgba(var(--callout-border-rgb), 0.3);
@@ -365,6 +366,7 @@
     background-color: rgba(var(--callout-rgb), 0.1);
     border-radius: var(--border-radius);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: 'Inter', sans-serif;
 }
 
 .formInput,
@@ -426,21 +428,6 @@
 
 .fileInput {
     display: none;
-}
-
-.customFileButton {
-    background-color: rgba(var(--card-rgb), 0.9);
-    cursor: pointer;
-    color: white;
-    transition: background-color 0.3s;
-    display: block;
-    width: 100%;
-    font-size: 1rem;
-    padding: 0.5rem 1rem;
-    margin-bottom: 1rem;
-    border: 1px solid rgba(var(--callout-border-rgb), 0.3);
-    border-radius: var(--border-radius);
-    text-align: center;
 }
 
 .customFileButton:hover {
@@ -601,6 +588,4 @@
     border: 1px solid black;
     padding: 0 10px 0 0;
     border-radius: 5px;
-
-
 }

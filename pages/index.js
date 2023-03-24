@@ -7,19 +7,6 @@ import { useState } from 'react';
 const inter = Inter({subsets: ['latin']});
 
 export default function Home() {
-    const [image, setImage] = useState(null);
-  
-    const handleImageChange = (e) => {
-      e.preventDefault();
-      let file = e.target.files[0];
-      if (file) {
-        let reader = new FileReader();
-        reader.onloadend = () => {
-          setImage(reader.result);
-        };
-        reader.readAsDataURL(file);
-      }
-    };
 
   return (
     <>

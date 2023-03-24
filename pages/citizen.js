@@ -8,14 +8,14 @@ import LoremIpsum from 'react-lorem-ipsum';
 const inter = Inter({subsets: ['latin']})
 
 export default function Home() {
-    const [image, setImage] = useState(null);
+    const [imageInput, setImageInput] = useState(null);
     const [expandedSection, setExpandedSection] = useState(null);
     const [isMapModalOpen, setIsMapModalOpen] = useState(false);
 
     const [isChatOpen, setIsChatOpen] = useState(false);
     const [isToTake, setIsToTake] = useState(false);
 
-    const [email, setEmail] = useState('');
+    const [emailInput, setEmailInput] = useState('');
 
     const handleImageChange = (e) => {
         e.preventDefault();
@@ -23,7 +23,7 @@ export default function Home() {
         if (file) {
             let reader = new FileReader();
             reader.onloadend = () => {
-                setImage(reader.result);
+                setImageInput(reader.result);
             };
             reader.readAsDataURL(file);
         }
@@ -106,22 +106,36 @@ export default function Home() {
                 </div>
                 <div className={ `${styles.columns}` }>
                     <div className={` ${styles.wrapper}`}>
+
                         <div className={styles.bulkGarbageTitle}>Bulk Garbage Disposal Form</div>
+
                         <input
                             type="email"
                             placeholder="Email"
                             className={styles.formInput}
+                            onChange={(e) => setEmailInput(e.target.value)}
                         />
-                        <label htmlFor="fileInput" className={styles.customFileButton}>
-                            Choose File
-                        </label>
+
+                        {emailInput && (
+                            <span>{emailInput}</span>
+                        )}
+
                         <input
-                            id="fileInput"
+                            id="imageInput"
                             type="file"
                             accept="image/*"
                             onChange={handleImageChange}
-                            className={styles.fileInput}
+                            className={styles.customFileButton}
                         />
+                        {imageInput && (
+                                <Image
+                                    src={imageInput}
+                                    alt="Uploaded Image"
+                                    width={250}
+                                    height={100}
+                                />
+                        )}
+
                         <div className={styles.mapContainer} onClick={openBiggerMap}>
                             <Image
                                 src="/map_preview.jpg"
