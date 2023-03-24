@@ -572,7 +572,7 @@
     text-align: center;
     width: 100%;
     padding: 3em;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 }
 
 .openWindowTitleDescription h2 {
@@ -581,4 +581,26 @@
 
 .pickupDate {
     color: firebrick;
+}
+
+.objectsContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: auto;
+}
+
+.singleObject {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 3%;
+    margin-right: 3%;
+    margin-bottom: 12px;
+    border: 1px solid black;
+    padding: 0 10px 0 0;
+    border-radius: 5px;
+
+
 }

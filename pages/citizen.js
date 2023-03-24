@@ -15,6 +15,8 @@ export default function Home() {
     const [isChatOpen, setIsChatOpen] = useState(false);
     const [isToTake, setIsToTake] = useState(false);
 
+    const [email, setEmail] = useState('');
+
     const handleImageChange = (e) => {
         e.preventDefault();
         let file = e.target.files[0];
@@ -186,7 +188,7 @@ export default function Home() {
                             <div className={styles.openWindowTitleDescription}>
 
                                 <h2>Disposal Location</h2>
-                                <div>please specify where you left the object</div>
+                                <div>Please specify where you left the object</div>
 
                             </div>
 
@@ -225,6 +227,41 @@ export default function Home() {
                                 <h2>Second-hand objects</h2>
                                 <div>You are welcome to take these!</div>
 
+                            </div>
+
+                            <div className={styles.objectsContainer}>
+                                <div className={styles.singleObject}>
+                                    <Image
+                                        src="/racoon.png"
+                                        alt="sample image"
+                                        width={100}
+                                        height={100}
+                                        priority
+                                    />
+                                    <span>A nice racoon!</span>
+                                </div>
+
+                                <div className={styles.singleObject}>
+                                    <Image
+                                        src="/racoon.png"
+                                        alt="sample image"
+                                        width={100}
+                                        height={100}
+                                        priority
+                                    />
+                                    <span>A nice racoon!</span>
+                                </div>
+
+                                <div className={styles.singleObject}>
+                                    <Image
+                                        src="/racoon.png"
+                                        alt="sample image"
+                                        width={100}
+                                        height={100}
+                                        priority
+                                    />
+                                    <span>A nice racoon!</span>
+                                </div>
                             </div>
 
                             <button className={styles.closeButton} onClick={closeToTake}>
