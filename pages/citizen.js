@@ -3,7 +3,7 @@ import Image from 'next/image'
 import {Inter} from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import React, {useState} from 'react';
-
+import LoremIpsum from 'react-lorem-ipsum';
 
 const inter = Inter({subsets: ['latin']})
 
@@ -85,9 +85,23 @@ export default function Home() {
                     </div>
                 </div>
                 <div className={styles.columns}>
-                    <div className={`${styles.container} ${styles.formContainer}`}>
-                        <input type="email" placeholder="Email"/>
-                        <input type="file" accept="image/*" onChange={handleImageChange}/>
+                    <div className={`${styles.container} ${styles.formContainer} ${styles.wrapper}`}>
+                        <div className={styles.bulkGarbageTitle}>Bulk Garbage Disposal Form</div>
+                        <input
+                            type="email"
+                            placeholder="Email"
+                            className={styles.formInput}
+                        />
+                        <label htmlFor="fileInput" className={styles.customFileButton}>
+                            Choose File
+                        </label>
+                        <input
+                            id="fileInput"
+                            type="file"
+                            accept="image/*"
+                            onChange={handleImageChange}
+                            className={styles.fileInput}
+                        />
                         <div className={styles.mapContainer} onClick={openBiggerMap}>
                             <Image
                                 src="/map_preview.jpg"
@@ -96,26 +110,64 @@ export default function Home() {
                                 height={100}
                             />
                         </div>
-                        <button>Pay</button>
+                        <button type="submit" className={styles.formButton}>
+                            Pay
+                        </button>
 
                     </div>
-                    <div className={`${styles.container} ${styles.sectionContainer}`}>
-                        {Array(4)
-                            .fill(0)
-                            .map((_, index) => (
-                                <div
-                                    key={index}
-                                    className={`${styles.section} ${
-                                        expandedSection === index ? styles.expanded : ''
-                                    }`}
-                                    onClick={() => handleSectionClick(index)}
-                                >
-                                    Section {index + 1}
+                    <div className={`${styles.container} ${styles.sectionContainer} ${styles.wrapper}`}>
+
+                        <div
+                            className={`${styles.section} ${expandedSection === 0 ? styles.expanded : ''}`}
+                            onClick={() => handleSectionClick(0)}
+                        >
+                            <h3>Section 1</h3>
+                            {expandedSection === 0 && (
+                                <div className={styles.expandedContent}>
+                                    <LoremIpsum p={1} />
                                 </div>
-                            ))}
+                            )}
+                        </div>
+
+                        <div
+                            className={`${styles.section} ${expandedSection === 0 ? styles.expanded : ''}`}
+                            onClick={() => handleSectionClick(1)}
+                        >
+                            <h3>Section 2</h3>
+                            {expandedSection === 1 && (
+                                <div className={styles.expandedContent}>
+                                    <LoremIpsum p={1} />
+                                </div>
+                            )}
+                        </div>
+
+                        <div
+                            className={`${styles.section} ${expandedSection === 0 ? styles.expanded : ''}`}
+                            onClick={() => handleSectionClick(2)}
+                        >
+                            <h3>Section 3</h3>
+                            {expandedSection === 2 && (
+                                <div className={styles.expandedContent}>
+                                    <LoremIpsum p={1} />
+                                </div>
+                            )}
+                        </div>
+
+                        <div
+                            className={`${styles.section} ${expandedSection === 0 ? styles.expanded : ''}`}
+                            onClick={() => handleSectionClick(3)}
+                        >
+                            <h3>Section 4</h3>
+                            {expandedSection === 3 && (
+                                <div className={styles.expandedContent}>
+                                    <LoremIpsum p={1} />
+                                </div>
+                            )}
+                        </div>
+
+
                     </div>
                 </div>
-
                 {isMapModalOpen && (
                     <div className={styles.mapModal}>
                         <div className={styles.mapBackdrop} onClick={closeBiggerMap}></div>
