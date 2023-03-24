@@ -73,11 +73,11 @@ export default function Home() {
             <Image
                 src="/racoon.png"
                 alt="St. Gallen Bulk Trash Logo"
-                width={150}
-                height={150}
+                width={200}
+                height={200}
                 priority
             />
-            <h1 className={styles.headerText}>Bulk Waste <br/> Collection System</h1>
+            <h1 className={styles.headerText}>Bulk Waste <br/>Collection System</h1>
           </div>
           <h2 className={styles.subheadText}>Easily dispose of bulk trash with us 🗑️</h2>
         </div>

@@ -53,8 +53,7 @@ export default function Home() {
                     <div>
                         <p>
                             <a
-                                href="https://www.stadt.sg.ch/home/welcome.html"
-                                target="_blank"
+                                href="./"
                                 rel="noopener noreferrer"
                             >
                                 <Image

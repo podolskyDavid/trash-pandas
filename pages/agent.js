@@ -175,8 +175,7 @@ function Map({ trashlocations }) {
             <div>
               <p>
                 <a
-                  href="https://www.stadt.sg.ch/home/welcome.html"
-                  target="_blank"
+                  href="./"
                   rel="noopener noreferrer"
                 >
                   <Image
@@ -207,6 +206,9 @@ function Map({ trashlocations }) {
                 />
               </a>
             </div>
+          </div>
+          <div className={styles.mapPaddingTop}>
+            <p> </p>
           </div>
           <Map trashlocations={trashlocations} />
         </main>

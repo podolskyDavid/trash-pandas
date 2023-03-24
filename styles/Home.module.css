@@ -16,6 +16,8 @@
     width: 100%;
     z-index: 2;
     font-family: var(--font-mono);
+    padding: 0 0 25px 0;
+    position: fixed;
 }
 
 .description a {
@@ -127,6 +129,7 @@
     .description {
         display: flex;
         padding: 2rem 2rem 0 2rem;
+        position: fixed;
     }
 
 }
@@ -238,7 +241,7 @@
     display: grid;
     grid-template-columns: 1fr 1.618fr;
     gap: 2rem;
-    padding: 6rem;
+    padding: 8rem;
     min-height: 100vh;
 }
 
@@ -557,12 +560,16 @@
     flex-direction: column;
     align-items: center;
     gap: 3rem;
-    padding: 160px 0 40px 0;
+    padding: 100px 0 3rem 0;
 }
 
 .logoAndName {
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 0 75px 0 0;
+    padding: 25px 95px 0 0;
+}
+
+.mapPaddingTop {
+    padding-top: 75px;
 }
