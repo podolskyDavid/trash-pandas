@@ -6,7 +6,7 @@ import { useState } from 'react';
 
 const inter = Inter({subsets: ['latin']});
 
-export default function Home() {
+export default function Success() {
 
   return (
     <>
@@ -66,47 +66,9 @@ export default function Home() {
             />
             <h1 className={styles.headerText}>Bulk Waste <br/>Collection System</h1>
           </div>
-          <h2 className={styles.subheadText}>Dispose of bulky waste easily with us 🗑️</h2>
+          <h2 className={styles.subheadText}>Success. Thank you for Submitting the request!</h2>
         </div>
-        <div style={{ display: 'flex', justifyContent: 'center', padding: "0px 0px 250px 0px" }}>
-          <a
-            href="./collector"
-            className={styles.card}
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              City Worker <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              I am a trash collector.
-            </p>
-          </a>
-          <a
-            href="./agent"
-            className={styles.card}
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Agent <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              I am an agent.
-            </p>
-          </a>
 
-          <a
-            href="./citizen"
-            className={styles.card}
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Citizen <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Quickly set out your trash for collection, or find second-hand items. 
-            </p>
-          </a>
-        </div>
       </main>
     </>
   );

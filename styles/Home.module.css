@@ -59,7 +59,12 @@
     }
 }
 
-
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+}
 
 .map-container {
     position: relative;
@@ -84,7 +89,6 @@
     background-color: rgba(var(--callout-rgb), 0.2);
     border: 1px solid rgba(var(--card-border-rgb), 0.1);
     transition: background 200ms, border 200ms;
-
     cursor: pointer;
 }
 
@@ -100,6 +104,11 @@
 
 .section.expanded {
     flex-grow: 2;
+}
+
+.expandedContent {
+    margin-top: 1rem;
+    padding: 5%;
 }
 
 .expandedContent {
@@ -248,77 +257,85 @@
 .card span {
     display: inline-block;
     transition: transform 200ms;
-  }
+}
 
-  .card h2 {
+.card h2 {
     font-weight: 600;
     margin-bottom: 0.7rem;
-  }
+}
 
-  .card p {
+.card p {
     margin: 0;
     opacity: 0.6;
     font-size: 0.9rem;
     line-height: 1.5;
     max-width: 30ch;
-  }
+}
 
-  /* Enable hover only on non-touch devices */
+/* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
     .card:hover {
-      background: rgba(var(--card-rgb), 0.1);
-      border: 1px solid rgba(var(--card-border-rgb), 0.15);
+        background: rgba(var(--card-rgb), 0.1);
+        border: 1px solid rgba(var(--card-border-rgb), 0.15);
     }
 
     .card:hover span {
-      transform: translateX(4px);
+        transform: translateX(4px);
     }
-  }
-  .card {
-    padding: 1rem 1.5rem;
-  }
+}
 
-  .card h2 {
+.card {
+    padding: 1rem 1.5rem;
+}
+
+.card h2 {
     margin-bottom: 0.5rem;
-  }
-  .header {
+}
+
+.header {
     width: 100%;
     background-color: transparent;
-  }
+}
 
-  .headerText {
+.headerText {
     display: flex;
     text-align: center;
     font-size: 2.5rem;
     margin: 0;
     color: #353535;
-  }
-  .subheadText {
-      display: flex;
-      text-align: center;
+}
+
+.subheadText {
+    display: flex;
+    text-align: center;
     font-size: 1.5rem;
     margin: 0;
     color: #5c5c5c;
-  }
+    border-radius: var(--border-radius);
+    background-color: rgba(var(--callout-rgb), 0.2);
+    border: 1px solid rgba(var(--card-border-rgb), 0.1);
+    transition: background 200ms, border 200ms;
+    padding: 1rem;
+}
 
-  .trashDetailsColumns {
+.trashDetailsColumns {
     display: flex;
     justify-content: space-between;
-  }
+}
 
-  .trashDetailsLeft {
+.trashDetailsLeft {
     flex: 1;
-  }
+}
 
-  .trashDetailsRight {
+.trashDetailsRight {
     flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-  }
+}
 
-  .statusButton {
+.statusButton {
     background-color: #ccc;
     color: #000;
     border: none;
@@ -326,9 +343,9 @@
     margin: 5px;
     border-radius: 4px;
     cursor: pointer;
-  }
+}
 
-  .statusButtonSelected {
+.statusButtonSelected {
     background-color: #0070f3;
     color: #fff;
     border: none;
@@ -336,9 +353,9 @@
     margin: 5px;
     border-radius: 4px;
     cursor: pointer;
-  }
+}
 
-  .submitButtonInactive {
+.submitButtonInactive {
     background-color: #ccc;
     color: #000;
     border: none;
@@ -346,9 +363,9 @@
     margin: 20px 5px;
     border-radius: 4px;
     cursor: not-allowed;
-  }
+}
 
-  .submitButtonActive {
+.submitButtonActive {
     background-color: #0070f3;
     color: #fff;
     border: none;
@@ -356,7 +373,7 @@
     margin: 20px 5px;
     border-radius: 4px;
     cursor: pointer;
-  }
+}
 
 
 .wrapper {
@@ -487,7 +504,7 @@
     }
 
     .description a {
-        padding: 1rem;
+        padding: 0.25rem;
     }
 
     .description p,
@@ -532,10 +549,16 @@
         display: flex;
         text-align: center;
         font-size: 1.5rem;
-        margin: 0;
+        margin: 10px 5% 10px 5%;
         color: #5c5c5c;
-        padding: 0 100px 0 100px;
+        padding: 15px 15px 15px 15px;
+
+        border-radius: var(--border-radius);
+        background-color: rgba(var(--callout-rgb), 0.2);
+        border: 1px solid rgba(var(--card-border-rgb), 0.1);
+        transition: background 200ms, border 200ms;
     }
+
 
     .columns {
         flex-direction: column;
@@ -588,4 +611,99 @@
     border: 1px solid black;
     padding: 0 10px 0 0;
     border-radius: 5px;
+}
+
+.wrapper {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: rgba(var(--callout-rgb), 0.1);
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.formInput,
+.formButton {
+    display: block;
+    width: 100%;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(var(--callout-border-rgb), 0.3);
+    border-radius: var(--border-radius);
+}
+
+.formInput {
+    background-color: rgba(var(--callout-rgb), 0.5);
+    text-align: left;
+}
+
+.formButton {
+    background-color: rgba(var(--card-rgb), 0.9);
+    cursor: pointer;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+.formButton:hover {
+    background-color: rgba(var(--card-rgb), 1);
+}
+
+.formContainer > *:not(:last-child) {
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(var(--callout-border-rgb), 0.3);
+}
+
+/* Styled the "choose file" button */
+.formInput[type="file"] {
+    display: none;
+}
+
+/* Centered the elements in the right column */
+.sectionContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center; /* Add this line to center the elements */
+    width: 100%;
+}
+
+.section {
+    width: 100%;
+}
+
+.section + .section {
+    margin-top: 1rem;
+}
+
+.bulkGarbageTitle {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    text-align: center;
+    width: 100%;
+}
+
+.fileInput {
+    display: none;
+}
+
+.customFileButton {
+    background-color: rgba(var(--card-rgb), 0.9);
+    cursor: pointer;
+    color: white;
+    transition: background-color 0.3s;
+    display: block;
+    width: 100%;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(var(--callout-border-rgb), 0.3);
+    border-radius: var(--border-radius);
+    text-align: center;
+}
+
+.customFileButton:hover {
+    background-color: rgba(var(--card-rgb), 1);
 }
