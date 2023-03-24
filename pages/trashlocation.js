@@ -10,12 +10,13 @@ export default function TrashLocation() {
   const router = useRouter();
   const { id, quantity, status, image_url } = router.query;
   const [selectedStatus, setSelectedStatus] = useState(null);
+  const [comment, setComment] = useState('');
 
   const updateStatus = async () => {
     try {
       const { error } = await supabase
         .from('trashlocations')
-        .update({ status: selectedStatus })
+        .update({ status: selectedStatus, comment })
         .eq('id', id);
 
       if (error) {
@@ -54,36 +55,65 @@ export default function TrashLocation() {
           </div>
           <div className={styles.trashDetailsRight}>
             <div>
-              <button
-                className={
-                  selectedStatus === 'collected'
-                    ? styles.statusButtonSelected
-                    : styles.statusButton
-                }
-                onClick={() => setSelectedStatus('collected')}
-              >
-                Collected
-              </button>
-              <button
-                className={
-                  selectedStatus === 'rejected'
-                    ? styles.statusButtonSelected
-                    : styles.statusButton
-                }
-                onClick={() => setSelectedStatus('rejected')}
-              >
-                Rejected
-              </button>
-              <button
-                className={
-                  selectedStatus === 'not present'
-                    ? styles.statusButtonSelected
-                    : styles.statusButton
-                }
-                onClick={() => setSelectedStatus('not present')}
-              >
-                Not Present
-              </button>
+              {status === 'rejected' ? (
+                <>
+                  <button
+                    className={styles.statusButton}
+                    onClick={() => setSelectedStatus('issue fine')}
+                  >
+                    Issue Fine
+                  </button>
+                  <button
+                    className={styles.statusButton}
+                    onClick={() => setSelectedStatus('missing')}
+                  >
+                    Item Removed
+                  </button>
+                </>
+              ) : (
+                <>
+                  <button
+                    className={
+                      selectedStatus === 'collected'
+                        ? styles.statusButtonSelected
+                        : styles.statusButton
+                    }
+                    onClick={() => setSelectedStatus('collected')}
+                  >
+                    Collected
+                  </button>
+                  <button
+                    className={
+                      selectedStatus === 'rejected'
+                        ? styles.statusButtonSelected
+                        : styles.statusButton
+                    }
+                    onClick={() => setSelectedStatus('rejected')}
+                  >
+                    Rejected
+                  </button>
+                  <button
+                    className={
+                      selectedStatus === 'not present'
+                        ? styles.statusButtonSelected
+                        : styles.statusButton
+                    }
+                    onClick={() => setSelectedStatus('not present')}
+                  >
+                    Not Present
+                  </button>
+                </>
+              )}
+            </div>
+            <div>
+              <label htmlFor="comment">Comment:</label>
+              <input
+                type="text"
+                id="comment"
+                name="comment"
+                value={comment}
+                onChange={(e) => setComment(e.target.value)}
+              />
             </div>
             <button
               className={
@@ -99,13 +129,16 @@ export default function TrashLocation() {
           </div>
         </div>
         <p>
-          <Link href="/" legacyBehavior>
-            <a style={{ textDecoration: 'underline', color: 'blue' }}>
-              Back to map
-            </a>
-          </Link>
-        </p>
+  <a
+    style={{ textDecoration: 'underline', color: 'blue', cursor: 'pointer' }}
+    onClick={() => window.history.back()}
+  >
+    return to map
+  </a>
+</p>
+
       </main>
     </>
   );
+  
 }
