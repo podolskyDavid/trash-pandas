@@ -50,6 +50,25 @@ export default function Home() {
                 />
               </a>
             </p>
+            
+          </div>
+          <div>
+          <p>
+              <a
+                href="./"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Image
+                  src="/../public/RacoonLogo.png"
+                  alt="Smart Gallen Logo"
+                  className={styles.vercelLogo}
+                  width={100}
+                  height={24}
+                  priority
+                />
+              </a>
+            </p>
           </div>
           <div>
             <a

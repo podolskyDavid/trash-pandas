@@ -52,6 +52,14 @@
     .content {
         padding: 4rem;
     }
+    .main {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0rem;
+        min-height: 100vh;
+    }
 
     .description {
         font-size: 0.8rem;
@@ -102,6 +110,14 @@
 
 /* Tablet and Smaller Desktop */
 @media (min-width: 701px) and (max-width: 1120px) {
+    .main {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0rem;
+        min-height: 100vh;
+    }
 
 }
 
@@ -269,4 +285,60 @@
     color: #5c5c5c;
   }
 
+  .trashDetailsColumns {
+    display: flex;
+    justify-content: space-between;
+  }
   
+  .trashDetailsLeft {
+    flex: 1;
+  }
+  
+  .trashDetailsRight {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .statusButton {
+    background-color: #ccc;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .statusButtonSelected {
+    background-color: #0070f3;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .submitButtonInactive {
+    background-color: #ccc;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    margin: 20px 5px;
+    border-radius: 4px;
+    cursor: not-allowed;
+  }
+  
+  .submitButtonActive {
+    background-color: #0070f3;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin: 20px 5px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+    

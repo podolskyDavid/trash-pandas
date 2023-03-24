@@ -18,9 +18,12 @@ import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 
 
 const containerStyle = {
-  width: '100%',
+  width: '95%',
   height: '80vh',
+  padding: '100px', // Add padding of 20px
+  marginTop: '20px',
 };
+
 
 const inter = Inter({subsets: ['latin']})
 
@@ -130,7 +133,7 @@ function isValidCoordinate(coord) {
   >
     <div>
       <h4>ID: {selectedMarker.id}</h4>
-      <p>Quantity: {selectedMarker.quantity}</p>
+      <p>Number of Stamps Paid: {selectedMarker.quantity}</p>
       <p>Status: {selectedMarker.status}</p>
       <img
         src={selectedMarker.image_url}
