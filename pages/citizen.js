@@ -83,8 +83,8 @@ export default function Home() {
                         </a>
                     </div>
                 </div>
-                <div className={styles.columns}>
-                    <div className={`${styles.container} ${styles.formContainer} ${styles.wrapper}`}>
+                <div className={ `${styles.columns}` }>
+                    <div className={` ${styles.wrapper}`}>
                         <div className={styles.bulkGarbageTitle}>Bulk Garbage Disposal Form</div>
                         <input
                             type="email"
@@ -114,7 +114,7 @@ export default function Home() {
                         </button>
 
                     </div>
-                    <div className={`${styles.container} ${styles.sectionContainer} ${styles.wrapper}`}>
+                    <div className={`${styles.wrapper}`}>
 
                         <div
                             className={`${styles.section} ${expandedSection === 0 ? styles.expanded : ''}`}

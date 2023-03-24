@@ -25,7 +25,7 @@ export default function Home() {
     <>
       <Head>
         <title>Trash Bulk. City of St. Gallen</title>
-        <meta name="description" content="Your way to easily leave the bulk trash"/>
+        <meta name="description" content="A system to easily dispose of the bulk trash"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <link rel="icon" href="/favicon.ico"/>
       </Head>
@@ -79,7 +79,7 @@ export default function Home() {
             />
             <h1 className={styles.headerText}>Bulk Waste <br/>Collection System</h1>
           </div>
-          <h2 className={styles.subheadText}>Easily dispose of bulk trash with us 🗑️</h2>
+          <h2 className={styles.subheadText}>Dispose of bulky waste easily with us 🗑️</h2>
         </div>
         <div style={{ display: 'flex', justifyContent: 'center', padding: "0px 0px 250px 0px" }}>
           <a
