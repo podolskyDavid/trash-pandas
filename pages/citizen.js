@@ -12,6 +12,9 @@ export default function Home() {
     const [expandedSection, setExpandedSection] = useState(null);
     const [isMapModalOpen, setIsMapModalOpen] = useState(false);
 
+    const [isChatOpen, setIsChatOpen] = useState(false);
+    const [isToTake, setIsToTake] = useState(false);
+
     const handleImageChange = (e) => {
         e.preventDefault();
         let file = e.target.files[0];
@@ -38,6 +41,22 @@ export default function Home() {
 
     const closeBiggerMap = () => {
         setIsMapModalOpen(false);
+    };
+
+    const openChat = () => {
+        setIsChatOpen(true);
+    };
+
+    const closeChat = () => {
+        setIsChatOpen(false);
+    };
+
+    const openToTake = () => {
+        setIsToTake(true);
+    };
+
+    const closeToTake = () => {
+        setIsToTake(false);
     };
 
     return (
@@ -120,7 +139,7 @@ export default function Home() {
                             className={`${styles.section} ${expandedSection === 0 ? styles.expanded : ''}`}
                             onClick={() => handleSectionClick(0)}
                         >
-                            <h3>Section 1</h3>
+                            <h3>Instructions</h3>
                             {expandedSection === 0 && (
                                 <div className={styles.expandedContent}>
                                     <LoremIpsum p={1} />
@@ -130,21 +149,18 @@ export default function Home() {
 
                         <div
                             className={`${styles.section} ${expandedSection === 0 ? styles.expanded : ''}`}
-                            onClick={() => handleSectionClick(1)}
+                            onClick={openChat}
                         >
-                            <h3>Section 2</h3>
-                            {expandedSection === 1 && (
-                                <div className={styles.expandedContent}>
-                                    <LoremIpsum p={1} />
-                                </div>
-                            )}
+                            <h3>Chat</h3>
                         </div>
 
                         <div
                             className={`${styles.section} ${expandedSection === 0 ? styles.expanded : ''}`}
                             onClick={() => handleSectionClick(2)}
                         >
-                            <h3>Section 3</h3>
+                            <h3>Next pick-up date: <span className={styles.pickupDate}>28.04.23</span></h3>
+
+
                             {expandedSection === 2 && (
                                 <div className={styles.expandedContent}>
                                     <LoremIpsum p={1} />
@@ -154,14 +170,9 @@ export default function Home() {
 
                         <div
                             className={`${styles.section} ${expandedSection === 0 ? styles.expanded : ''}`}
-                            onClick={() => handleSectionClick(3)}
+                            onClick={openToTake}
                         >
-                            <h3>Section 4</h3>
-                            {expandedSection === 3 && (
-                                <div className={styles.expandedContent}>
-                                    <LoremIpsum p={1} />
-                                </div>
-                            )}
+                            <h3>Gratis zum Mitnehmen</h3>
                         </div>
 
 
@@ -170,14 +181,59 @@ export default function Home() {
                 {isMapModalOpen && (
                     <div className={styles.mapModal}>
                         <div className={styles.mapBackdrop} onClick={closeBiggerMap}></div>
-                        <div className={styles.mapContent}>
-                            {/* Render your bigger map component here */}
-                            <button className={styles.closeMapButton} onClick={closeBiggerMap}>
-                                Close
+                        <div className={styles.openWindowContent}>
+
+                            <div className={styles.openWindowTitleDescription}>
+
+                                <h2>Disposal Location</h2>
+                                <div>please specify where you left the object</div>
+
+                            </div>
+
+                            <button className={styles.closeButton} onClick={closeBiggerMap}>
+                                ✖️
                             </button>
                         </div>
                     </div>
                 )}
+
+                {isChatOpen && (
+                    <div className={styles.mapModal}>
+                        <div className={styles.mapBackdrop} onClick={closeChat}></div>
+                        <div className={styles.openWindowContent}>
+
+                            <div className={styles.openWindowTitleDescription}>
+
+                                <h2>Ask your questions</h2>
+                                <div>Let us help you with your questions.</div>
+
+                            </div>
+
+                            <button className={styles.closeButton} onClick={closeChat}>
+                                ✖️
+                            </button>
+                        </div>
+                    </div>
+                )}
+
+                {isToTake && (
+                    <div className={styles.mapModal}>
+                        <div className={styles.mapBackdrop} onClick={closeToTake}></div>
+                        <div className={styles.openWindowContent}>
+                            <div className={styles.openWindowTitleDescription}>
+
+                                <h2>Second-hand objects</h2>
+                                <div>You are welcome to take these!</div>
+
+                            </div>
+
+                            <button className={styles.closeButton} onClick={closeToTake}>
+                                ✖️
+                            </button>
+                        </div>
+                    </div>
+                )}
+
 
             </main>
         </>

@@ -127,7 +127,7 @@
     background-color: rgba(0, 0, 0, 0.5);
 }
 
-.mapContent {
+.openWindowContent {
     position: relative;
     width: 80%;
     height: 80%;
@@ -138,7 +138,7 @@
     flex-direction: column;
 }
 
-.closeMapButton {
+.closeButton {
     position: absolute;
     top: 1rem;
     right: 1rem;
@@ -146,6 +146,7 @@
     border: none;
     font-size: 1.5rem;
     cursor: pointer;
+    font-family: 'Inter', sans-serif;
 }
 
 .columns {
@@ -563,4 +564,21 @@
         align-items: center;
         padding: 25px 45px 0 0;
     }
+}
+
+.openWindowTitleDescription {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+    padding: 3em;
+    margin-bottom: 50px;
+}
+
+.openWindowTitleDescription h2 {
+    margin-bottom: 5px;
+}
+
+.pickupDate {
+    color: firebrick;
 }
