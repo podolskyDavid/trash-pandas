@@ -17,6 +17,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-hook-form": "^7.43.7",
+    "react-lorem-ipsum": "^1.4.10",
     "supabase": "^1.45.2"
   }
 }
